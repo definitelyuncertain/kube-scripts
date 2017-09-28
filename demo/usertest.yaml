@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: py
+spec:
+  securityContext:
+    runAsUser: 1000
+  volumes:
+  - name: workdir
+    persistentVolumeClaim:
+      claimName: nfs
+  - hostPath:
+      path: /usr/lib/nvidia-384/bin
+    name: bin
+  - hostPath:
+      path: /usr/lib/nvidia-384
+    name: lib
+  - hostPath:
+      path: /usr/local/cuda
+    name: cudalib
+  - hostPath:
+      path: /usr/local/cuda/bin
+    name: cudabin
+  containers:
+  - name: py
+    image: ubuntu:16.04
+    command: ["/bin/bash", "/home/kube/workdir/run.sh"]
+    resources:
+      limits:
+        alpha.kubernetes.io/nvidia-gpu: 1
+    volumeMounts:
+    - mountPath: /home/kube/workdir
+      name: workdir
+    - mountPath: /usr/local/nvidia/bin
+      name: bin
+    - mountPath: /usr/local/nvidia/lib
+      name: lib
+    - mountPath: /usr/local/cuda
+      name: cudalib
+    - mountPath: /usr/local/cuda/bin
+      name: cudabin
+  restartPolicy: Never
+
