@@ -1,10 +1,10 @@
 # Provision NFS volumes
 
-python genpv.py home $2 "/storage/home/$1"
-kubectl create -f manifests/pv-home.yaml --namespace=$1-namespace
+python genpv.py $1-home $2 "/storage/home/$1"
+kubectl create -f manifests/pv-$1-home.yaml --namespace=$1-namespace
 
-python genpvc.py home
-kubectl create -f manifests/pvc-home.yaml --namespace=$1-namespace
+python genpvc.py $1-home
+kubectl create -f manifests/pvc-$1-home.yaml --namespace=$1-namespace
 
 
 python genpv.py tools $2 "/tools"
