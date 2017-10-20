@@ -15,7 +15,7 @@ kubectl create -f manifests/pvc-tools.yaml --namespace=$1-namespace
 
 
 python genpv.py datasets $2 "/datasets"
-kubectl create -f manifests/pv-dataset.yaml --namespace=$1-namespace
+kubectl create -f manifests/pv-datasets.yaml --namespace=$1-namespace
 
 python genpvc.py datasets
 kubectl create -f manifests/pvc-datasets.yaml --namespace=$1-namespace
