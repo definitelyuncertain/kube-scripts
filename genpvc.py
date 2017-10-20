@@ -2,6 +2,7 @@ import sys, os
 import re
 
 name = sys.argv[1]
+mode = sys.argv[2]
 
 yamlstring =\
 r'''apiVersion: v1
@@ -10,7 +11,7 @@ metadata:
   name: '''+ name + '''
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ''' + mode + '''
   storageClassName: ""
   resources:
     requests:
