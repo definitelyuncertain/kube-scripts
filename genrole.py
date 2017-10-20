@@ -13,6 +13,20 @@ rules:
 - apiGroups: ["", "extensions", "apps"]
   resources: ["pods", "pods/log"]
   verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: '''+ uname +'''psprole
+rules: 
+- apiGroups:
+  - extensions
+  resources:
+  - podsecuritypolicies
+  resourceNames:
+  - ''' + uname + '''-psp
+  verbs:
+  - use
 '''
 
 fh=open('manifests/role.yaml','w')
