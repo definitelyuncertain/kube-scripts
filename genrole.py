@@ -17,7 +17,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 metadata:
-  name: '''+ uname +'''psprole
+  name: '''+ uname +'''-psprole
 rules: 
 - apiGroups:
   - extensions
