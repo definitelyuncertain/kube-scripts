@@ -20,6 +20,6 @@ spec:
     path: ''' + path + '''
 '''
 
-fh=open('manifests/pv-name.yaml','w')
+fh=open('manifests/pv-'+ name +'.yaml','w')
 fh.write(yamlstring)
 fh.close()
