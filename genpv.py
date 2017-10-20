@@ -9,7 +9,7 @@ yamlstring =\
 r'''apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs
+  name: ''' + name + '''
 spec:
   capacity:
     storage: 6Gi
