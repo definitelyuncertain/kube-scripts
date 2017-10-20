@@ -10,6 +10,7 @@ metadata:
   name: restrict-root
 spec:
   privileged: false
+  runAsUser:
     rule: MustRunAs
     ranges:
     - min: '''+uid+'''
