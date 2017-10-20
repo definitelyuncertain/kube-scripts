@@ -5,10 +5,14 @@ pqstring =\
 r'''apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: compute-resources
+  name: podquota
 spec:
   hard:
-    pods: "1"
+    pods: "2"
+    requests.cpu: "8"
+    requests.memory: 50Gi
+    limits.cpu: "8"
+    limits.memory: 50Gi
 '''
 
 fh=open('manifests/podquota.yaml','w')
