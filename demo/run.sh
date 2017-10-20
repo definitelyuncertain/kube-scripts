@@ -1,6 +1,14 @@
-export PATH="/usr/local/nvidia/bin:/usr/local/cuda/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda/lib64:/usr/local/nvidia/lib:$LD_LIBRARY_PATH"
-cd /home/kube/workdir
-python getdevices.py &> out
-#nvidia-smi &> out
+export PATH="/usr/local/nvidia/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/nvidia/lib:$LD_LIBRARY_PATH"
+#cd /home/iitm/tmp/kube-scripts/demo
+#source /tools/config.sh
+#source activate py35
+cd /home/job
+#python getdevices.py &> out
+#tensorboard --logdir=./logs &
+#python -u convolutional.py &> out
+#python -u alexnet_benchmark.py &> out6
+#sleep 60
+nvidia-smi &> out
+#nvidia-smi &> /scratch96/iitm/out
 #nvcc --version &> out
