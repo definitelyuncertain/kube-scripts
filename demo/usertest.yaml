@@ -6,14 +6,14 @@ spec:
   securityContext:
     runAsUser: 1000
   volumes:
-  - name: workdir
+  - name: home
     persistentVolumeClaim:
-      claimName: nfs
+      claimName: home
   - hostPath:
-      path: /usr/lib/nvidia-384/bin
+      path: /usr/lib/nvidia-375/bin
     name: bin
   - hostPath:
-      path: /usr/lib/nvidia-384
+      path: /usr/lib/nvidia-375
     name: lib
   - hostPath:
       path: /usr/local/cuda
@@ -21,16 +21,24 @@ spec:
   - hostPath:
       path: /usr/local/cuda/bin
     name: cudabin
+  - hostPath:
+      path: /scratch96/
+    name: scratch
   containers:
   - name: py
     image: ubuntu:16.04
-    command: ["/bin/bash", "/home/kube/workdir/run.sh"]
+    command: ["/bin/bash", "/home/job/run.sh"]
     resources:
       limits:
         alpha.kubernetes.io/nvidia-gpu: 1
+        memory: "4Gi"
+        cpu: "1"
+      requests:
+        memory: "4Gi"
+        cpu: "1"
     volumeMounts:
-    - mountPath: /home/kube/workdir
-      name: workdir
+    - mountPath: /home/
+      name: home
     - mountPath: /usr/local/nvidia/bin
       name: bin
     - mountPath: /usr/local/nvidia/lib
@@ -39,5 +47,6 @@ spec:
       name: cudalib
     - mountPath: /usr/local/cuda/bin
       name: cudabin
+    - mountPath: /scratch96/
+      name: scratch
   restartPolicy: Never
-
