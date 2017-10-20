@@ -1,13 +1,14 @@
 import sys, os
 import re
 
-uid = sys.argv[1]
+uname = sys.argv[1]
+uid = sys.argv[2]
 
 pspstring =\
 r'''apiVersion: extensions/v1beta1
 kind: PodSecurityPolicy
 metadata:
-  name: restrict-root
+  name: ''' + uname + '''-psp
 spec:
   privileged: false
   runAsUser:
