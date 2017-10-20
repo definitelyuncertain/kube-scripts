@@ -1,5 +1,5 @@
-mkdir manifests
-mkdir key
+mkdir -p manifests
+mkdir -p key
 
 kubectl create namespace $1-namespace
 
