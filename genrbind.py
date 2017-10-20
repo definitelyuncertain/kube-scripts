@@ -17,6 +17,19 @@ roleRef:
   kind: Role
   name: '''+ uname +r'''
   apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+    name: '''+ uname +'''-psprolebind
+subjects:
+- kind: User
+  apiGroup: rbac.authorization.k8s.io
+  name: ''' + uname + '''
+roleRef:
+   apiGroup: rbac.authorization.k8s.io
+   kind: ClusterRole
+   name: ''' + uname + '''-psprole
 '''
 
 fh=open('manifests/rolebind.yaml','w')
