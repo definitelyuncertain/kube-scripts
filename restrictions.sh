@@ -1,5 +1,7 @@
+uid=`id -u $1`
+
 # Generate and Apply Pod Security Policy
-python genpsp.py $1
+python genpsp.py $uid
 kubectl create -f manifests/psp.yaml --namespace=$1-namespace
 
 # Generate and Apply Resource Quotas
