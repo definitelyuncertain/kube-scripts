@@ -1,3 +1,6 @@
+mkdir manifests
+mkdir key
+
 kubectl create namespace $1-namespace
 
 bash keygen.sh $1
