@@ -9,6 +9,12 @@ spec:
   - name: home
     persistentVolumeClaim:
       claimName: home
+  - name: tools
+    persistentVolumeClaim:
+      claimName: tools
+  - name: datasets
+    persistentVolumeClaim:
+      claimName: datasets
   - hostPath:
       path: /usr/lib/nvidia-375/bin
     name: bin
@@ -39,6 +45,10 @@ spec:
     volumeMounts:
     - mountPath: /home/
       name: home
+    - mountPath: /tools
+      name: tools
+    - mountPath: /datasets
+      name: datasets
     - mountPath: /usr/local/nvidia/bin
       name: bin
     - mountPath: /usr/local/nvidia/lib
