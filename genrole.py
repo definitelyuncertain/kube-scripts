@@ -27,7 +27,6 @@ rules:
   - ''' + uname + '''-psp
   verbs:
   - use
-rules:
 - apiGroups: [""]
   resources: ["nodes"]
   verbs: ["get", "list", "watch", "describe"]
