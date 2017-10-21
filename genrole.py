@@ -32,6 +32,8 @@ rules:
   - extensions
   resources:
   - nodes
+  resourceNames:
+  - ""
   verbs:
   - get
   - describe
@@ -40,6 +42,8 @@ rules:
   - extensions
   resources:
   - pods
+  resourceNames:
+  - ""
   verbs:
   - get
   - describe
