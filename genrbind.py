@@ -24,10 +24,10 @@ metadata:
     name: '''+ uname +'''-psprolebind
 subjects:
 - kind: User
-  apiGroup: ""
+  apiGroup: rbac.authorization.k8s.io
   name: ''' + uname + '''
 roleRef:
-   apiGroup: ""
+   apiGroup: rbac.authorization.k8s.io
    kind: ClusterRole
    name: ''' + uname + '''-psprole
 '''
