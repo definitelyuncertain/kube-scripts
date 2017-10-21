@@ -11,7 +11,7 @@ sudo mkdir -p /storage/home/$1/.kube/key
 
 sudo cp ./key/$1.key ./key/$1.crt ./key/$1.csr /storage/home/$1/.kube/key/
 
-sudo chmod -R +rwx------ /storage/home/$1/.kube/key/
+sudo chmod -R rwx------ /storage/home/$1/.kube/key/
 
 sudo chown -R $1: /storage/home/$1/.kube
 
