@@ -30,10 +30,10 @@ rules:
 rules:
 - apiGroups: [""]
   resources: ["nodes"]
-  verbs: ["get", "describe"]
+  verbs: ["get", "list", "watch", "describe"]
 - apiGroups: ["", "extensions", "apps"]
   resources: ["pods", "pods/log"]
-  verbs: ["get, describe"]
+  verbs: ["get", "list", "watch", "describe"]
 '''
 
 fh=open('manifests/role.yaml','w')
