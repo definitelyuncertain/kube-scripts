@@ -3,6 +3,7 @@ import re
 
 name = sys.argv[1]
 mode = sys.argv[2]
+cap = sys.argv[3]
 
 yamlstring =\
 r'''apiVersion: v1
@@ -15,7 +16,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 6Gi
+      storage: ''' + cap + '''
 '''
 
 fh=open('manifests/pvc-'+ name +'.yaml','w')
