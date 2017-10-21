@@ -24,7 +24,7 @@ metadata:
     name: '''+ uname +'''-psprolebind
 subjects:
 - kind: User
-  apiGroup: rbac.authorization.k8s.io
+  apiGroup: ""
   name: ''' + uname + '''
 roleRef:
    apiGroup: rbac.authorization.k8s.io
