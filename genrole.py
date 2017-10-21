@@ -19,14 +19,10 @@ kind: ClusterRole
 metadata:
   name: '''+ uname +'''-psprole
 rules: 
-- apiGroups:
-  - extensions
-  resources:
-  - podsecuritypolicies
-  resourceNames:
-  - ''' + uname + '''-psp
-  verbs:
-  - use
+- apiGroups: ["extensions"]
+  resources: ["podsecuritypolicies"]
+  resourceNames: ["''' + uname + '''-psp"]
+  verbs: ["use"]
 - apiGroups: [""]
   resources: ["nodes"]
   verbs: ["get", "list", "watch", "describe"]
