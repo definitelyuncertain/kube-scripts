@@ -7,6 +7,7 @@ path = sys.argv[3]
 cap = sys.argv[4]
 mode = sys.argv[5]
 uname = sys.argv[6]
+claimname = sys.argv[7]
 
 yamlstring =\
 r'''apiVersion: v1
@@ -20,7 +21,7 @@ spec:
     - '''+ mode +'''
   claimRef:
     namespace: ''' + uname + '''-namespace
-    name: '''+ name + '''
+    name: '''+ claimname + '''
   nfs:
     server: ''' + ip + '''
     path: ''' + path + '''
