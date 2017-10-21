@@ -4,7 +4,9 @@ import re
 name = sys.argv[1]
 ip = sys.argv[2]
 path = sys.argv[3]
-mode = sys.argv[4]
+cap = sys.argv[4]
+mode = sys.argv[5]
+uname = sys.argv[6]
 
 yamlstring =\
 r'''apiVersion: v1
@@ -13,9 +15,12 @@ metadata:
   name: ''' + name + '''
 spec:
   capacity:
-    storage: 6Gi
+    storage: ''' + cap + '''
   accessModes:
     - '''+ mode +'''
+  claimRef:
+    namespace: ''' + uname + '''-namespace
+    name: '''+ name + '''
   nfs:
     server: ''' + ip + '''
     path: ''' + path + '''
