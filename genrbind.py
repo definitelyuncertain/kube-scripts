@@ -27,7 +27,7 @@ subjects:
   apiGroup: ""
   name: ''' + uname + '''
 roleRef:
-   apiGroup: rbac.authorization.k8s.io
+   apiGroup: ""
    kind: ClusterRole
    name: ''' + uname + '''-psprole
 '''
