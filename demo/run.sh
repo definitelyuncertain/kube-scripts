@@ -9,6 +9,9 @@ cd /home/job
 #python -u convolutional.py &> out
 #python -u alexnet_benchmark.py &> out6
 #sleep 60
-nvidia-smi &> out
+#nvidia-smi &> out
+#ls -l /tools &> out
+ls -l /datasets &> out
+#touch /datasets/newfile
 #nvidia-smi &> /scratch96/iitm/out
 #nvcc --version &> out
