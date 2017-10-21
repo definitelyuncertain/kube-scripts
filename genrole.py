@@ -27,26 +27,13 @@ rules:
   - ''' + uname + '''-psp
   verbs:
   - use
-- apiGroups:
-  - ""
-  - extensions
-  resources:
-  - nodes
-  resourceNames:
-  - ""
-  verbs:
-  - get
-  - describe
-- apiGroups:
-  - ""
-  - extensions
-  resources:
-  - pods
-  resourceNames:
-  - ""
-  verbs:
-  - get
-  - describe
+rules:
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["get", "describe"]
+- apiGroups: ["", "extensions", "apps"]
+  resources: ["pods", "pods/log"]
+  verbs: ["get, describe"]
 '''
 
 fh=open('manifests/role.yaml','w')
