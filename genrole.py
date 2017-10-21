@@ -11,7 +11,7 @@ metadata:
   name: ''' + uname +'''
 rules:
 - apiGroups: ["", "extensions", "apps"]
-  resources: ["pods", "pods/log"]
+  resources: ["pods", "pods/log", "pods/exec"]
   verbs: ["*"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
