@@ -1,10 +1,10 @@
 # Provision NFS volumes
 
-#python genpv.py $1-home $2 "/storage/home/$1" 6Gi ReadWriteOnce $1 home
-#kubectl create -f manifests/pv-$1-home.yaml --namespace=$1-namespace
+python genpv.py $1-home $2 "/storage/home/$1" 6Gi ReadWriteOnce $1 home
+kubectl create -f manifests/pv-$1-home.yaml --namespace=$1-namespace
 
-#python genpvc.py home ReadWriteOnce 6Gi
-#kubectl create -f manifests/pvc-home.yaml --namespace=$1-namespace
+python genpvc.py home ReadWriteOnce 6Gi
+kubectl create -f manifests/pvc-home.yaml --namespace=$1-namespace
 
 
 #python genpv.py $1-tools $2 "/tools" 1Mi ReadOnlyMany $1 tools
