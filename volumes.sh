@@ -28,7 +28,7 @@ for line in `cat volumes-list.txt`; do
     cap=`echo $line | cut -d',' -f5`
     
     python genpv.py $1-$volname $ip "$path" $cap $mode $1 $volname
-    kubectl create -f manifests/pv-$1-$volname --namespace=$1-namespace
+    kubectl create -f manifests/pv-$1-$volname.yaml --namespace=$1-namespace
     
     python genpvc.py $volname $mode $cap
     kubectl create -f manifests/pvc-$volname.yaml --namespace=$1-namespace
