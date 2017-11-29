@@ -1,6 +1,6 @@
 # Provision NFS volumes
 
-kubectl delete pv $1-home --namespace=$1-namespace
+kubectl delete pv $1-home
 
 kubectl delete pvc home --namespace=$1-namespace
 
@@ -26,8 +26,8 @@ for line in `cat volumes-list.txt`; do
     cap=`echo $line | cut -d',' -f5`
     
     
-    kubectl delete pv $1-$volname.yaml --namespace=$1-namespace
+    kubectl delete pv $1-$volname --namespace=$1-namespace
     
 
-    kubectl delete pvc $volname.yaml --namespace=$1-namespace
+    kubectl delete pvc $volname --namespace=$1-namespace
 done
