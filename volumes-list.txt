@@ -1,0 +1,2 @@
+10.24.6.58,/tools,tools,ReadOnlyMany,1Mi
+10.24.6.65,/media/sdc1,data1,ReadOnlyMany,1000Gi
